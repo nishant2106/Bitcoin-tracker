@@ -10,7 +10,7 @@ class UserInfo(models.Model):
         return self.username
 
 class BitcoinInfo(models.Model):
-    price = models.IntegerField()
+    price = models.CharField(max_length=100)
     timestamp = models.CharField(max_length=100)
     def __str__(self):
-        return self.price
+        return f"{self.price},{self.timestamp}"

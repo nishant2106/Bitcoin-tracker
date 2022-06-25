@@ -1,0 +1,13 @@
+{% include 'material/includes/material_css.html' %}
+{% include 'material/includes/material_js.html' %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Bitcoin Prices</title>
+      <script>console.log(django_tables2)</script>
+   </head>
+   <body>
+      {% load django_tables2 %}
+      {% render_table queryset %}
+   </body>
+</html>

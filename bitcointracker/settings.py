@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 from bitcointracker import bitcointracker
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,6 +38,7 @@ REST_FRAMEWORK = {
 # Application definition
 
 INSTALLED_APPS = [
+    'material',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'bitcointracker.bitcointracker'
+    'bitcointracker.bitcointracker',
+    'django_tables2'
 ]
 
 MIDDLEWARE = [
@@ -59,11 +61,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bitcointracker.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR,os.path.join(BASE_DIR,'/home/nis/care/bitcointracker/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
